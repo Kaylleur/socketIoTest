@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "amqplib": "^0.5.2",
     "express": "^4.15.2",
     "socket.io": "^2.1.1"
   },

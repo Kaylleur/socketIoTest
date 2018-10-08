@@ -2,6 +2,8 @@ var app = require('express')();
 var http = require('http').Server(app);
 var amqp = require('amqplib/callback_api');
 var io = require('socket.io')(http);
+const redisAdapter = require('socket.io-redis');
+io.adapter(redisAdapter({ host: 'localhost', port: 6379 }));
 
 http.listen(3003, function(){
   console.log('listening on *:3003');

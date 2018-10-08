@@ -7,7 +7,7 @@ http.listen(3000, function(){
 });
 
 app.get('/', function(req, res){
-    res.send('<h1>MS2</h1>');
+    res.send({msg:"msg from ms2"});
 });
 app.get('/send', function(req, res){
     amqp.connect('amqp://localhost/guest', function(err, conn) {

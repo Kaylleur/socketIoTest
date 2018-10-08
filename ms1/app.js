@@ -7,7 +7,7 @@ http.listen(3001, function(){
 });
 
 app.get('/', function(req, res){
-    res.send('<h1>MS1</h1>');
+    res.send({msg:"msg from ms1"});
 });
 
 app.get('/send', function(req, res){

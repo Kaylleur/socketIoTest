@@ -45,4 +45,24 @@
 
       i++;
   }
+
+  function sendReq(url,id){
+      const req = new XMLHttpRequest();
+
+      req.onreadystatechange = function(event) {
+          // XMLHttpRequest.DONE === 4
+          if (this.readyState === XMLHttpRequest.DONE) {
+              if (this.status <= 400) {
+                  console.log(this.responseText);
+                  document.getElementById(id).innerText(JSON.parse(this.responseText).msg)
+              }
+          }
+      };
+
+      req.open('GET', url, true);
+      req.send(null);
+  }
+
+  sendReq('http://localhost:3000/','ms1');
+  sendReq('http://localhost:3001/','ms2');
 </script>

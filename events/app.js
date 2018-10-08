@@ -10,7 +10,11 @@ http.listen(3003, function(){
 
 io.on('connection', function(socket){
   console.log('a user connected at ms2');
+  socket.on('notifFromBrowser', function(msg){
+     socket.broadcast.emit('receiveBroadcast',msg);
+  });
 });
+
 
 app.get('/', function(req, res){
     res.send('<h1>Event</h1>');

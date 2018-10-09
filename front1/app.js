@@ -1,7 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 
-app.get('/1', function(req, res){
+app.get('/', function(req, res){
   res.sendFile(__dirname + '/index_app1.html');
 });
 http.listen(3002, function(){

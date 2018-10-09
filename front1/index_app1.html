@@ -21,9 +21,9 @@
     </div>
   </body>
 </html>
-<script src="http://localhost:3003/socket.io/socket.io.js"></script>
+<script src="http://localhost/events/socket.io.js"></script>
 <script>
-  var socket = io('http://localhost:3003/');
+  var socket = io('/namespace', { path: '/events/' });
   socket.on('eventUpdate', msg => {
       console.log(msg);
 
@@ -54,7 +54,7 @@
           if (this.readyState === XMLHttpRequest.DONE) {
               if (this.status <= 400) {
                   console.log(this.responseText);
-                  document.getElementById(id).innerText(JSON.parse(this.responseText).msg)
+                  document.getElementById(id).innerHTML = JSON.parse(this.responseText).msg;
               }
           }
       };
@@ -63,6 +63,6 @@
       req.send(null);
   }
 
-  sendReq('http://localhost:3000/','ms1');
-  sendReq('http://localhost:3001/','ms2');
+  sendReq('http://localhost/ms1','ms1');
+  sendReq('http://localhost/ms2','ms2');
 </script>
